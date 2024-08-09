@@ -66,13 +66,14 @@ Accessing functionality of an SDK or API typically involves obtaining permission
 import os
 from openai import OpenAI
 
-API_KEY = os.getenv("OPENAI_API_KEY","")
-
 client = OpenAI(
-    api_key=API_KEY
-    )
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
-chat_completion = client.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": "Suggest two titles for an instructional lesson on chat applications for generative AI."}])
+deployment=os.environ['CHAT_COMPLETION_MODEL']
+
+chat_completion = client.chat.completions.create(model=deployment, messages=[{"role": "user", "content": "Suggest two titles for an instructional lesson on chat applications for generative AI."}])
 ```
 
 The above example uses the GPT-3.5 Turbo model to complete the prompt, but notice that the API key is set prior to doing so. You'd receive an error if you didn't set the key.

@@ -14,7 +14,7 @@ The transcription data prep scripts have been tested on the latest releases Wind
 
 > [!NOTE]
 > For these instructions we're using the resource group named "semantic-video-search" in East US.
-> You can change the name of the resource group, but when changing the location for the resources, 
+> You can change the name of the resource group, but when changing the location for the resources,
 > check the [model availability table](https://aka.ms/oai/models?WT.mc_id=academic-105485-koreyst).
 
 ```console
@@ -38,8 +38,8 @@ az cognitiveservices account keys list --name semantic-video-openai \
 ```
 
 1. Deploy the following models:
-   - `text-embedding-ada-002` version `2` or greater, named `text-embedding-ada-002`
-   - `gpt-35-turbo` version `0613` or greater, named `gpt-35-turbo`
+    - `text-embedding-ada-002` version `2` or greater, named `text-embedding-ada-002`
+    - `gpt-35-turbo` version `0613` or greater, named `gpt-35-turbo`
 
 ```console
 az cognitiveservices account deployment create \
@@ -63,7 +63,7 @@ az cognitiveservices account deployment create \
 
 ## Required software
 
-- [Python 3.9](https://www.python.org/downloads/?WT.mc_id=academic-105485-koreyst) or greater
+-   [Python 3.9](https://www.python.org/downloads/?WT.mc_id=academic-105485-koreyst) or greater
 
 ## Environment variables
 
@@ -75,7 +75,7 @@ Recommend adding the variables to your `user` environment variables.
 `Windows Start` > `Edit the system environment variables` > `Environment Variables` > `User variables` for [USER] > `New`.
 
 ```text
-AZURE_OPENAI_API_KEY  \<your Azure OpenAI Service API key>
+API_KEY  \<your Azure OpenAI Service API key>
 AZURE_OPENAI_ENDPOINT \<your Azure OpenAI Service endpoint>
 AZURE_OPENAI_MODEL_DEPLOYMENT_NAME \<your Azure OpenAI Service model deployment name>
 GOOGLE_DEVELOPER_API_KEY = \<your Google developer API key>
@@ -84,7 +84,7 @@ GOOGLE_DEVELOPER_API_KEY = \<your Google developer API key>
 <!-- You can add the environment variables to your PowerShell profile.
 
 ```powershell
-$env:AZURE_OPENAI_API_KEY = "<your Azure OpenAI Service API key>"
+$env:API_KEY = "<your Azure OpenAI Service API key>"
 $env:AZURE_OPENAI_ENDPOINT = "<your Azure OpenAI Service endpoint>"
 $env:AZURE_OPENAI_MODEL_DEPLOYMENT_NAME = "<your Azure OpenAI Service model deployment name>"
 $env:GOOGLE_DEVELOPER_API_KEY = "<your Google developer API key>"
@@ -95,7 +95,7 @@ $env:GOOGLE_DEVELOPER_API_KEY = "<your Google developer API key>"
 Recommend adding the following exports to your `~/.bashrc` or `~/.zshrc` file.
 
 ```bash
-export AZURE_OPENAI_API_KEY=<your Azure OpenAI Service API key>
+export API_KEY=<your Azure OpenAI Service API key>
 export AZURE_OPENAI_ENDPOINT=<your Azure OpenAI Service endpoint>
 export AZURE_OPENAI_MODEL_DEPLOYMENT_NAME=<your Azure OpenAI Service model deployment name>
 export GOOGLE_DEVELOPER_API_KEY=<your Google developer API key>
@@ -112,9 +112,9 @@ export GOOGLE_DEVELOPER_API_KEY=<your Google developer API key>
 
 1. Navigate to the `data_prep` folder.
 
-   ```bash
-   cd semanic-search-openai-embeddings-functions/src/data_prep
-   ```
+    ```bash
+    cd semanic-search-openai-embeddings-functions/src/data_prep
+    ```
 
 1. Create a Python virtual environment.
 
@@ -132,31 +132,31 @@ export GOOGLE_DEVELOPER_API_KEY=<your Google developer API key>
 
 1. Activate the Python virtual environment.
 
-   On Windows:
+    On Windows:
 
-   ```powershell
-   .venv\Scripts\activate
-   ```
+    ```powershell
+    .venv\Scripts\activate
+    ```
 
-   On macOS and Linux:
+    On macOS and Linux:
 
-   ```bash
-   source .venv/bin/activate
-   ```
+    ```bash
+    source .venv/bin/activate
+    ```
 
 1. Install the required libraries.
 
-   On windows:
+    On windows:
 
-   ```powershell
-   pip install -r requirements.txt
-   ```
+    ```powershell
+    pip install -r requirements.txt
+    ```
 
-   On macOS and Linux:
+    On macOS and Linux:
 
-   ```bash
-   pip3 install -r requirements.txt
-   ```
+    ```bash
+    pip3 install -r requirements.txt
+    ```
 
 ## Run the YouTube transcription data prep scripts
 

@@ -6,10 +6,12 @@ import dotenv
 dotenv.load_dotenv()
 
 # configure OpenAI service client 
-client = OpenAI()
+client = OpenAI(
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
-#deployment=os.environ['OPENAI_DEPLOYMENT']
-deployment="gpt-3.5-turbo"
+deployment=os.environ['CHAT_COMPLETION_MODEL']
 
 # add your completion code
 prompt = "Complete the following: Once upon a time there was a"

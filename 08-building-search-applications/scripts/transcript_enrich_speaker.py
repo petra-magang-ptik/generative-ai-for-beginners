@@ -22,7 +22,7 @@ from tenacity import (
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
-API_KEY = os.environ["AZURE_OPENAI_API_KEY"]
+API_KEY = os.environ["API_KEY"]
 RESOURCE_ENDPOINT = os.environ["AZURE_OPENAI_ENDPOINT"]
 TRANSCRIPT_FOLDER = "transcripts"
 PROCESSING_THREADS = 10
@@ -189,7 +189,14 @@ def process_queue(progress, task):
         with open(filename, "r", encoding="utf-8") as json_file:
             metadata = json.load(json_file)
 
-            base_text = 'The title is: ' +  metadata['title'] + " " + metadata["description"] + " " + get_first_segment(filename)
+            base_text = (
+                "The title is: "
+                + metadata["title"]
+                + " "
+                + metadata["description"]
+                + " "
+                + get_first_segment(filename)
+            )
             # replace new line with empty string
             base_text = base_text.replace("\n", " ")
 

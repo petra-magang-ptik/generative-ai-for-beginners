@@ -7,7 +7,10 @@ import dotenv
 # import dotenv
 dotenv.load_dotenv()
 
-openai = OpenAI()
+openai = OpenAI(
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
 image_dir = os.path.join(os.curdir, 'images')
 

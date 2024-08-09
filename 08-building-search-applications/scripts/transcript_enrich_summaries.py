@@ -15,7 +15,7 @@ from tenacity import (
 )
 from rich.progress import Progress
 
-API_KEY = os.environ["AZURE_OPENAI_API_KEY"]
+API_KEY = os.environ["API_KEY"]
 RESOURCE_ENDPOINT = os.environ["AZURE_OPENAI_ENDPOINT"]
 AZURE_OPENAI_MODEL_DEPLOYMENT_NAME = os.getenv(
     "AZURE_OPENAI_MODEL_DEPLOYMENT_NAME", "gpt-35-turbo"

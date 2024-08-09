@@ -1,4 +1,4 @@
-from openai import AzureOpenAI
+from openai import OpenAI
 import os
 import requests
 from PIL import Image
@@ -9,18 +9,17 @@ import json
 dotenv.load_dotenv()
 
 # Get endpoint and key from environment variables
-client = AzureOpenAI(
-  api_key=os.environ['AZURE_OPENAI_KEY'],  # this is also the default, it can be omitted
-  api_version = "2023-12-01-preview",
-  azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT'] 
-  )
+client = OpenAI(
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
-model = os.environ['AZURE_OPENAI_DEPLOYMENT']
+model = os.environ["CHAT_COMPLETION_MODEL"]
 
-image_dir = os.path.join(os.curdir, 'images')
+image_dir = os.path.join(os.curdir, "images")
 
 # Initialize the image path (note the filetype should be png)
-image_path = os.path.join(image_dir, 'generated-image.png')
+image_path = os.path.join(image_dir, "generated-image.png")
 print(image_path)
 image = Image.open(image_path)
 image.show()
@@ -29,17 +28,15 @@ image.show()
 try:
     print("LOG creating variation")
     result = client.images.create_variation(
-        image=open(image_path, "rb"),
-        n=1,
-        size="1024x1024"
+        image=open(image_path, "rb"), n=1, size="1024x1024"
     )
 
     client.images.create_variation()
     response = json.loads(result.model_dump_json())
 
-    image_path = os.path.join(image_dir, 'generated_variation.png')
+    image_path = os.path.join(image_dir, "generated_variation.png")
 
-    image_url = response['data'][0]['url']
+    image_url = response["data"][0]["url"]
 
     print("LOG downloading image")
     generated_image = requests.get(image_url).content  # download the image
@@ -49,8 +46,8 @@ try:
     # Display the image in the default image viewer
     image = Image.open(image_path)
     image.show()
-#except openai.error.InvalidRequestError as err:
+# except openai.error.InvalidRequestError as err:
 #    print(err)
-    
+
 finally:
     print("completed!")

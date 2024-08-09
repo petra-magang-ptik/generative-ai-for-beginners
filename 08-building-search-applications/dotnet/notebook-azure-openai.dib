@@ -20,13 +20,13 @@ using Microsoft.DotNet.Interactive.AIUtilities;
 
 #!csharp
 
-var azureOpenAIKey = "<replace with API key>";
-var azureOpenAIEndpoint = "<replace with endpoint>";
+var OpenAIKey = "<replace with API key>";
+var OpenAIEndpoint = "<replace with endpoint>";
 var deployment = "<replace with deployment name, should be of type ADA embedding for Azure Open AI>";
 
 #!csharp
 
-OpenAIClient client = new (new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
+OpenAIClient client = new (new Uri(OpenAIEndpoint), new AzureKeyCredential(OpenAIKey));
 
 #!csharp
 

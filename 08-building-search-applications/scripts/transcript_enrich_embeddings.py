@@ -19,7 +19,7 @@ from tenacity import (
 )
 from rich.progress import Progress
 
-API_KEY = os.environ["AZURE_OPENAI_API_KEY"]
+API_KEY = os.environ["API_KEY"]
 RESOURCE_ENDPOINT = os.environ["AZURE_OPENAI_ENDPOINT"]
 PROCESSING_THREADS = 6
 OPENAI_REQUEST_TIMEOUT = 60

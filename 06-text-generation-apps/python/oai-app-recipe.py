@@ -6,10 +6,12 @@ import dotenv
 dotenv.load_dotenv()
 
 # configure Azure OpenAI service client 
-client = OpenAI()
+client = OpenAI(
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
-#deployment=os.environ['OPENAI_DEPLOYMENT']
-deployment="gpt-3.5-turbo"
+deployment=os.environ['CHAT_COMPLETION_MODEL']
 
 no_recipes = input("No of recipes (for example, 5: ")
 

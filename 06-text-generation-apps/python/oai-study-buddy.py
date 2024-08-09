@@ -7,11 +7,11 @@ dotenv.load_dotenv()
 
 # configure Azure OpenAI service client 
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY']
-  )
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
-#deployment=os.environ['OPENAI_DEPLOYMENT']
-deployment="gpt-3.5-turbo"
+deployment=os.environ['CHAT_COMPLETION_MODEL']
 
 # add your completion code
 question = input("Ask your questions on python language to your study buddy: ")

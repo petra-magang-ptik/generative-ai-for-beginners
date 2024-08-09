@@ -8,7 +8,10 @@ import dotenv
 dotenv.load_dotenv()
 
  
-client = OpenAI()
+client = OpenAI(
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
 
 try:

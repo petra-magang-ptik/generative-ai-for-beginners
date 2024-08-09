@@ -6,8 +6,12 @@ import dotenv
 dotenv.load_dotenv()
 
 # configure Azure OpenAI service client 
-client = OpenAI()
-deployment="gpt-3.5-turbo"
+client = OpenAI(
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
+
+deployment=os.environ['CHAT_COMPLETION_MODEL']
 
 # add your completion code
 persona = input("Tell me the historical character I want to be: ")

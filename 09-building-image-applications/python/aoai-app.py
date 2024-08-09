@@ -1,4 +1,4 @@
-from openai import AzureOpenAI
+from openai import OpenAI
 import os
 import requests
 from PIL import Image
@@ -8,16 +8,14 @@ import json
 # import dotenv
 dotenv.load_dotenv()
 
- 
 
 # Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
-client = AzureOpenAI(
-  api_key=os.environ['AZURE_OPENAI_KEY'],  # this is also the default, it can be omitted
-  api_version = "2023-12-01-preview",
-  azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT'] 
-  )
+client = OpenAI(
+  api_key=os.environ['API_KEY'],
+  base_url=os.environ['BASE_URL']
+)
 
-model = os.environ['AZURE_OPENAI_DEPLOYMENT']
+model = os.environ["CHAT_COMPLETION_MODEL"]
 
 
 try:
@@ -25,21 +23,21 @@ try:
 
     result = client.images.generate(
         model=model,
-        prompt='Bunny on horse, holding a lollipop, on a foggy meadow where it grows daffodils. It says "hello"',    # Enter your prompt text here
-        size='1024x1024',
-        n=1
+        prompt='Bunny on horse, holding a lollipop, on a foggy meadow where it grows daffodils. It says "hello"',  # Enter your prompt text here
+        size="1024x1024",
+        n=1,
     )
 
     generation_response = json.loads(result.model_dump_json())
     # Set the directory for the stored image
-    image_dir = os.path.join(os.curdir, 'images')
+    image_dir = os.path.join(os.curdir, "images")
 
     # If the directory doesn't exist, create it
     if not os.path.isdir(image_dir):
         os.mkdir(image_dir)
 
     # Initialize the image path (note the filetype should be png)
-    image_path = os.path.join(image_dir, 'generated-image.png')
+    image_path = os.path.join(image_dir, "generated-image.png")
 
     # Retrieve the generated image
     image_url = generation_response["data"][0]["url"]  # extract image URL from response
@@ -52,7 +50,7 @@ try:
     image.show()
 
 # catch exceptions
-#except client.error.InvalidRequestError as err:
+# except client.error.InvalidRequestError as err:
 #    print(err)
 
 finally:
@@ -61,8 +59,5 @@ finally:
 
 
 response = client.images.create_variation(
-  image=open(image_path, "rb"),
-  n=1,
-  size="1024x1024"
+    image=open(image_path, "rb"), n=1, size="1024x1024"
 )
-
