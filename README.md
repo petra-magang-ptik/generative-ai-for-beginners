@@ -1,18 +1,9 @@
 ![Generative AI For Beginners](./images/repo-thumbnailv3.png?WT.mc_id=academic-105485-koreyst)
 
+> [!NOTE]
+> This repository is adapted for usage with locally-hosted AI services such as Ollama. For the original version, please see [the upstream repository](https://github.com/microsoft/Generative-AI-For-Beginners/tree/main).
+
 ### 18 Lessons teaching everything you need to know to start building Generative AI applications
-
-[![GitHub license](https://img.shields.io/github/license/microsoft/Generative-AI-For-Beginners.svg)](https://github.com/microsoft/Generative-AI-For-Beginners/blob/master/LICENSE?WT.mc_id=academic-105485-koreyst)
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/Generative-AI-For-Beginners.svg)](https://GitHub.com/microsoft/Generative-AI-For-Beginners/graphs/contributors/?WT.mc_id=academic-105485-koreyst)
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/Generative-AI-For-Beginners.svg)](https://GitHub.com/microsoft/Generative-AI-For-Beginners/issues/?WT.mc_id=academic-105485-koreyst)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/Generative-AI-For-Beginners.svg)](https://GitHub.com/microsoft/Generative-AI-For-Beginners/pulls/?WT.mc_id=academic-105485-koreyst)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com?WT.mc_id=academic-105485-koreyst)
-
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/Generative-AI-For-Beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/Generative-AI-For-Beginners/watchers/?WT.mc_id=academic-105485-koreyst)
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/Generative-AI-For-Beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/Generative-AI-For-Beginners/network/?WT.mc_id=academic-105485-koreyst)
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/Generative-AI-For-Beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/Generative-AI-For-Beginners/stargazers/?WT.mc_id=academic-105485-koreyst)
-
-[![](https://dcbadge.vercel.app/api/server/ByRwuEEgH4)](https://aka.ms/genai-discord?WT.mc_id=academic-105485-koreyst)
 
 # Generative AI for Beginners (Version 2) - A Course
 
@@ -22,14 +13,14 @@ Learn the fundamentals of building Generative AI applications with our 18-lesson
 
 This course has 18 lessons. Each lesson covers its own topic so start wherever you like!
 
-Lessons are labeled either "Learn" lessons explaining a Generative AI concept or "Build" lessons that explain a concept and code examples in both **Python** and **TypeScript** when possible.
+Lessons are labeled either "Learn" lessons explaining a Generative AI concept or "Build" lessons that explain a concept and code examples in **Python**.
 
 Each lesson also includes a "Keep Learning" section with additional learning tools.
 
 **What You Need**
 
-- Access to the [Azure OpenAI Service](https://azure.microsoft.com/products/ai-services/openai-service?WT.mc_id=academic-105485-koreyst) **OR** [OpenAI API](https://platform.openai.com/docs/quickstart?context=python?WT.mc_id=academic-105485-koreyst) - _Only required to complete coding lessons_
-- Basic knowledge of Python or TypeScript is helpful - \*For absolute beginners check out these [Python](https://learn.microsoft.com/training/paths/python-language/?WT.mc_id=academic-105485-koreyst) and [TypeScript](https://learn.microsoft.com/training/paths/build-javascript-applications-typescript/?WT.mc_id=academic-105485-koreyst) courses.
+- A powerful enough computer/server to run the [Ollama](https://github.com/ollama/ollama) backend.
+- Basic knowledge of Python is helpful - \*For absolute beginners check out these [Python](https://learn.microsoft.com/training/paths/python-language/?WT.mc_id=academic-105485-koreyst) and [TypeScript](https://learn.microsoft.com/training/paths/build-javascript-applications-typescript/?WT.mc_id=academic-105485-koreyst) courses.
 - A GitHub account to [fork this entire repo](https://github.com/microsoft/generative-ai-for-beginners/fork?WT.mc_id=academic-105485-koreyst) to your own GitHub account
 
 We have created a **[Course Setup](./00-course-setup/README.md?WT.mc_id=academic-105485-koreyst)** lesson to help you with setting up your development environment.
@@ -38,15 +29,7 @@ Don't forget to [star (🌟) this repo](https://docs.github.com/en/get-started/e
 
 ## 🧠 Ready to Deploy?
 
-If you are looking for more advanced code samples, check out our [collection of Generative AI Code Samples](https://aka.ms/genai-beg-code?WT.mc_id=academic-105485-koreyst) in both **Python** and **TypeScript**.
-
-## 🗣️ Meet Other Learners, Get Support
-
-Join our [official AI Discord server](https://aka.ms/genai-discord?WT.mc_id=academic-105485-koreyst) to meet and network with other learners taking this course and get support.
-
-## 🚀 Building a Startup?
-
-Sign up for [Microsoft for Startups Founders Hub](https://aka.ms/genai-foundershub?WT.mc_id=academic-105485-koreyst) to receive **free OpenAI credits** and up to **$150k towards Azure credits to access OpenAI models through Azure OpenAI Services**.
+If you are looking for more advanced code samples, check out the upstream [collection of Generative AI Code Samples](https://aka.ms/genai-beg-code?WT.mc_id=academic-105485-koreyst) in both **Python** and **TypeScript**.
 
 ## 🙏 Want to help?
 
@@ -54,9 +37,9 @@ Do you have suggestions or found spelling or code errors? [Raise an issue](https
 
 ## 📂 Each lesson includes:
 
-- A short video introduction to the topic
+- A short video introduction to the topic (The short videos use the upstream version of the lessons)
 - A written lesson located in the README
-- Python and TypeScript code samples supporting Azure OpenAI and OpenAI API
+- Python code samples supporting OpenAI-compatible APIs such as Ollama
 - Links to extra resources to continue your learning
 
 ## 🗃️ Lessons
@@ -86,16 +69,3 @@ Do you have suggestions or found spelling or code errors? [Raise an issue](https
 ### 🌟 Special thanks
 
 Special thanks to [**John Aziz**](https://www.linkedin.com/in/john0isaac/) for creating all of the GitHub Actions and workflows
-
-## 🎒 Other Courses
-
-Our team produces other courses! Check out:
-
-- [ML for Beginners](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)
-- [Data Science for Beginners](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)
-- [AI for Beginners](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)
-- [**NEW** Cybersecurity for Beginners](https://github.com/microsoft/Security-101??WT.mc_id=academic-96948-sayoung)
-- [Web Dev for Beginners](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)
-- [IoT for Beginners](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)
-- [XR Development for Beginners](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)
-- [Mastering GitHub Copilot for AI Paired Programming](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)

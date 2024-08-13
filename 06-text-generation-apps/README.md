@@ -76,58 +76,27 @@ Let's see how we can build our first app, what libraries we need, how much is re
 
 ### Install openai
 
-There are many libraries out there for interacting with OpenAI or Azure OpenAI. It's possible to use numerous programming languages as well like C#, Python, JavaScript, Java and more. We've chosen to use the `openai` Python library, so we'll use `pip` to install it.
+There are many libraries out there for interacting with OpenAI-compatible APIs such as Ollama. It's possible to use numerous programming languages as well like C#, Python, JavaScript, Java and more. We've chosen to use the `openai` Python library, so we'll use `pip` to install it.
 
 ```bash
 pip install openai
 ```
 
-### Create a resource
+### Create an API key
 
-You need to carry out the following steps:
+#### Pure-Ollama setup
 
-- Create an account on Azure [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/?WT.mc_id=academic-105485-koreyst).
-- Gain access to Azure OpenAI. Go to [https://learn.microsoft.com/azure/ai-services/openai/overview#how-do-i-get-access-to-azure-openai](https://learn.microsoft.com/azure/ai-services/openai/overview#how-do-i-get-access-to-azure-openai?WT.mc_id=academic-105485-koreyst) and request access.
+With pure Ollama, an API key is not required, therefore the environment variable `API_KEY` may be filled with any value. Fill the `BASE_URL` with the Ollama OpenAI API endpoint, e.g. `http://ollama-url/v1`.
 
-  > [!NOTE]
-  > At the time of writing, you need to apply for access to Azure OpenAI.
+#### Open-WebUI setup
 
-- Install Python <https://www.python.org/>
-- Have created an Azure OpenAI Service resource. See this guide for how to [create a resource](https://learn.microsoft.com/azure/ai-services/openai/how-to/create-resource?pivots=web-portal?WT.mc_id=academic-105485-koreyst).
+With Open-WebUI, you need to create an API key. To do so:
 
-### Locate API key and endpoint
-
-At this point, you need to tell your `openai` library what API key to use. To find your API key, go to "Keys and Endpoint" section of your Azure OpenAI resource and copy the "Key 1" value.
-
-![Keys and Endpoint resource blade in Azure Portal](https://learn.microsoft.com/azure/ai-services/openai/media/quickstarts/endpoint.png?WT.mc_id=academic-105485-koreyst)
-
-Now that you have this information copied, let's instruct the libraries to use it.
-
-> [!NOTE]
-> It's worth separating your API key from your code. You can do so by using environment variables.
->
-> - Set the environment variable `OPENAI_API_KEY` to your API key.
->   `export OPENAI_API_KEY='sk-...'`
-
-### Setup configuration Azure
-
-If you're using Azure OpenAI, here's how you setup configuration:
-
-```python
-openai.api_type = 'azure'
-openai.api_key = os.environ["OPENAI_API_KEY"]
-openai.api_version = '2023-05-15'
-openai.api_base = os.getenv("API_BASE")
-```
-
-Above we're setting the following:
-
-- `api_type` to `azure`. This tells the library to use Azure OpenAI and not OpenAI.
-- `api_key`, this is your API key found in the Azure Portal.
-- `api_version`, this is the version of the API you want to use. At the time of writing, the latest version is `2023-05-15`.
-- `api_base`, this is the endpoint of the API. You can find it in the Azure Portal next to your API key.
-
-> [!NOTE] > `os.getenv` is a function that reads environment variables. You can use it to read environment variables like `OPENAI_API_KEY` and `API_BASE`. Set these environment variables in your terminal or by using a library like `dotenv`.
+1. Login as a user into the Open-WebUI instance.
+2. Click on your user icon in the bottom left corner and go to the "Account" tab.
+3. Then, create an API key or reset your current API key. Click the copy button next to the API key to copy it to your clipboard.
+4. Now, set the `API_KEY` environment variable to this value.
+5. Finally, set the `BASE_URL` environment variable to the Open-WebUI ollama endpoint, e.g. `http://open-webui-url/ollama/v1`.
 
 ## Generate text
 
@@ -136,7 +105,7 @@ The way to generate text is to use the `Completion` class. Here's an example:
 ```python
 prompt = "Complete the following: Once upon a time there was a"
 
-completion = openai.Completion.create(model="davinci-002", prompt=prompt)
+completion = openai.Completion.create(model="llama3.1:latest", prompt=prompt)
 print(completion.choices[0].text)
 ```
 
